@@ -132,15 +132,28 @@
             <p class="eyebrow">RSVP</p>
             <h2>Please let us know</h2>
           </div>
-          <form class="rsvp-form">
-            <input type="text" placeholder="Your name" />
-            <input type="email" placeholder="Email address" />
-            <select>
-              <option>Attending</option>
-              <option>Attending with guest</option>
-              <option>Regretfully declining</option>
-            </select>
-            <textarea rows="4" placeholder="Leave a note for the couple"></textarea>
+          <form class="rsvp-form" action="#" method="post">
+            <div class="form-field">
+              <label for="rsvp-name">Your name</label>
+              <input id="rsvp-name" name="guestName" type="text" placeholder="Your name" required />
+            </div>
+            <div class="form-field">
+              <label for="rsvp-email">Email address</label>
+              <input id="rsvp-email" name="guestEmail" type="email" placeholder="Email address" required />
+            </div>
+            <div class="form-field">
+              <label for="rsvp-attendance">Attendance</label>
+              <select id="rsvp-attendance" name="attendance" required>
+                <option value="" disabled selected>Select an option</option>
+                <option>Attending</option>
+                <option>Attending with guest</option>
+                <option>Regretfully declining</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="rsvp-note">Leave a note for the couple</label>
+              <textarea id="rsvp-note" name="note" rows="4" placeholder="Leave a note for the couple"></textarea>
+            </div>
             <button type="submit">Send RSVP</button>
           </form>
         </section>
@@ -156,7 +169,7 @@
               <p>123 Rosewood Avenue, Taguig City</p>
               <p>Garden formal attire</p>
             </div>
-            <a href="https://www.google.com/maps" target="_blank" rel="noreferrer">Open map</a>
+            <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer">Open map</a>
           </div>
         </section>
       </main>
