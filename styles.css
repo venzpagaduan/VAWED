@@ -301,6 +301,16 @@ h2 {
   gap: 12px;
 }
 
+.form-field {
+  display: grid;
+  gap: 8px;
+}
+
+.form-field label {
+  font-weight: 700;
+  color: var(--accent-2);
+}
+
 .rsvp-form input,
 .rsvp-form select,
 .rsvp-form textarea {
@@ -321,6 +331,12 @@ h2 {
   color: white;
   background: linear-gradient(120deg, var(--accent) 0%, var(--accent-2) 100%);
   cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.rsvp-form button:hover,
+.rsvp-form button:focus-visible {
+  opacity: 0.95;
 }
 
 .location-card {
