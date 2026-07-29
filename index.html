@@ -184,14 +184,36 @@
             <p class="gift-closing">With love and appreciation,</p>
             <p class="gift-signature">Venz and Angeline</p>
 
-            <div class="qr-placeholder" role="img" aria-label="Temporary QR code placeholder">
-              <span class="qr-corner qr-corner-one"></span>
-              <span class="qr-corner qr-corner-two"></span>
-              <span class="qr-corner qr-corner-three"></span>
-              <span class="qr-pixels"></span>
+            <button type="button" class="qr-open-button">Open QR Code</button>
+            <p class="qr-note">Open the QR code form to scan and confirm your attendance.</p>
+          </div>
+
+          <div class="qr-modal" id="qrModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="qr-modal-title">
+            <div class="qr-modal-panel">
+              <button type="button" class="qr-close" aria-label="Close QR form">×</button>
+              <h3 id="qr-modal-title">QR Code Confirmation</h3>
+              <p class="qr-modal-copy">Fill in your details and scan the code to RSVP.</p>
+              <form class="qr-form">
+                <label>
+                  Name
+                  <input type="text" name="name" placeholder="Your name" required />
+                </label>
+                <label>
+                  Email
+                  <input type="email" name="email" placeholder="you@example.com" required />
+                </label>
+                <button type="submit" class="qr-submit">Confirm</button>
+              </form>
+              <div class="qr-popup-code" role="img" aria-label="Temporary QR code placeholder">
+                <div class="qr-popup-placeholder">
+                  <span class="qr-corner qr-corner-one"></span>
+                  <span class="qr-corner qr-corner-two"></span>
+                  <span class="qr-corner qr-corner-three"></span>
+                  <span class="qr-pixels"></span>
+                </div>
+                <p class="qr-popup-note">Scan this code with your phone camera.</p>
+              </div>
             </div>
-            <p class="qr-label">QR Code</p>
-            <p class="qr-note">Temporary QR code placeholder</p>
           </div>
         </section>
 
@@ -262,5 +284,33 @@
         </section>
       </main>
     </div>
-  </body>
-</html>
+    <script>
+      const qrOpen = document.querySelector('.qr-open-button');
+      const qrModal = document.getElementById('qrModal');
+      const qrClose = document.querySelector('.qr-close');
+      const qrForm = document.querySelector('.qr-form');
+
+      function openQrModal() {
+        qrModal.classList.add('open');
+        qrModal.setAttribute('aria-hidden', 'false');
+      }
+
+      function closeQrModal() {
+        qrModal.classList.remove('open');
+        qrModal.setAttribute('aria-hidden', 'true');
+      }
+
+      qrOpen.addEventListener('click', openQrModal);
+      qrClose.addEventListener('click', closeQrModal);
+      qrModal.addEventListener('click', (event) => {
+        if (event.target === qrModal) {
+          closeQrModal();
+        }
+      });
+
+      qrForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        closeQrModal();
+        alert('Thank you! Your details have been recorded.');
+      });
+    </script>
