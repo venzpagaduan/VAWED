@@ -158,6 +158,7 @@ h1 {
 
 .save-label {
   margin: 0;
+  font-family: 'Atteron', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: clamp(1.8rem, 4.5vw, 2.8rem);
   letter-spacing: 0.36em;
   text-transform: uppercase;
@@ -165,9 +166,10 @@ h1 {
 }
 
 .save-label span {
+  font-family: 'Le Jour Script', 'Segoe Script', 'Brush Script MT', cursive;
   color: #3b7b74;
   letter-spacing: 0.06em;
-  font-style: italic;
+  text-transform: lowercase;
 }
 
 .save-note {
@@ -633,6 +635,257 @@ h1 {
 
   .qr-open-button {
     width: 100%;
+  }
+}
+
+.reminders-section {
+  position: relative;
+  margin-top: 28px;
+  padding: clamp(44px, 8vw, 76px) clamp(20px, 5vw, 48px);
+  overflow: hidden;
+  border-radius: 36px;
+  color: #111;
+  background:
+    radial-gradient(ellipse at -5% 48%, rgba(207, 211, 196, 0.54), transparent 30%),
+    radial-gradient(ellipse at 106% 18%, rgba(207, 211, 196, 0.54), transparent 32%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(249, 248, 244, 0.98));
+}
+
+.reminders-section::before,
+.reminders-section::after {
+  content: '';
+  position: absolute;
+  width: 260px;
+  aspect-ratio: 1;
+  opacity: 0.28;
+  pointer-events: none;
+  background: repeating-linear-gradient(66deg, transparent 0 19px, rgba(112, 126, 96, 0.34) 20px 22px, transparent 23px 38px);
+}
+
+.reminders-section::before {
+  top: -72px;
+  right: -96px;
+  transform: rotate(32deg);
+}
+
+.reminders-section::after {
+  bottom: -106px;
+  left: -112px;
+  transform: rotate(-48deg);
+}
+
+.reminders-content {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.reminders-content h2 {
+  margin: 0 0 clamp(26px, 5vw, 42px);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2rem, 5vw, 3.35rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.reminder-item + .reminder-item {
+  margin-top: clamp(18px, 3vw, 28px);
+}
+
+.reminder-item h3 {
+  margin: 0 0 2px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.05rem, 2.45vw, 1.42rem);
+  font-weight: 700;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.reminder-item p {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(0.96rem, 2.15vw, 1.16rem);
+  line-height: 1.12;
+}
+
+.rsvp-button {
+  display: block;
+  width: min(100%, 260px);
+  margin: clamp(34px, 6vw, 52px) auto 0;
+  padding: 15px 24px;
+  border: 1px solid #222;
+  border-radius: 999px;
+  color: #fff;
+  background: #222;
+  font: 700 1rem/1 'Atteron', 'Segoe UI', sans-serif;
+  letter-spacing: 0.14em;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.rsvp-button:hover,
+.rsvp-button:focus-visible {
+  color: #222;
+  background: transparent;
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.rsvp-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(16, 17, 14, 0.72);
+  backdrop-filter: blur(6px);
+  z-index: 20;
+}
+
+.rsvp-modal.open {
+  display: flex;
+}
+
+.rsvp-modal-panel {
+  position: relative;
+  width: min(100%, 560px);
+  max-height: min(760px, calc(100vh - 48px));
+  padding: clamp(28px, 6vw, 46px);
+  overflow-y: auto;
+  border-radius: 28px;
+  color: #171814;
+  background: #fbfaf7;
+  box-shadow: 0 36px 90px rgba(0, 0, 0, 0.28);
+}
+
+.rsvp-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  background: #20221c;
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.rsvp-modal-panel h2 {
+  margin: 0 0 8px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(2.2rem, 6vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.rsvp-modal-copy {
+  margin: 0 0 28px;
+  color: #5b5d54;
+  font-family: Georgia, 'Times New Roman', serif;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.rsvp-form {
+  display: grid;
+  gap: 18px;
+}
+
+.rsvp-form > label,
+.rsvp-form fieldset {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: #292b25;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.rsvp-form label span {
+  font-weight: 400;
+}
+
+.rsvp-form input[type='text'],
+.rsvp-form select,
+.rsvp-form textarea {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid rgba(38, 42, 31, 0.24);
+  border-radius: 12px;
+  color: #171814;
+  background: #fff;
+  font: 400 1rem/1.3 'Segoe UI', sans-serif;
+}
+
+.rsvp-form textarea {
+  resize: vertical;
+}
+
+.rsvp-form legend {
+  padding: 0;
+}
+
+.rsvp-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.rsvp-options label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 10px;
+  border: 1px solid rgba(38, 42, 31, 0.2);
+  border-radius: 12px;
+  font-size: 0.88rem;
+  font-weight: 400;
+}
+
+.rsvp-options input {
+  accent-color: #596448;
+}
+
+.rsvp-submit {
+  padding: 15px 20px;
+  border: 1px solid #20221c;
+  border-radius: 999px;
+  color: #fff;
+  background: #20221c;
+  font: 700 1rem/1 'Atteron', 'Segoe UI', sans-serif;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+
+.rsvp-success {
+  margin: 22px 0 0;
+  color: #40512e;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.15rem;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.rsvp-submission-frame {
+  display: none;
+}
+
+@media (max-width: 420px) {
+  .rsvp-options {
+    grid-template-columns: 1fr;
   }
 }
 
