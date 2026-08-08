@@ -38,7 +38,7 @@
         <section class="save-date-section">
           <div class="save-date-copy">
             <p class="save-label">SAVE <span>the</span> DATE</p>
-            <p class="save-note">Prepare to celebrate, and join us in creating memories that will last a lifetime.</p>
+            <p class="save-note">PREPARE TO CELEBRATE, AND JOIN US IN CREATING MEMORIES THAT WILL LAST A LIFETIME.</p>
           </div>
           <div class="save-date-card">
             <div class="save-image"></div>
@@ -184,26 +184,15 @@
             <p class="gift-closing">With love and appreciation,</p>
             <p class="gift-signature">Venz and Angeline</p>
 
-            <button type="button" class="qr-open-button">Open QR Code</button>
-            <p class="qr-note">Open the QR code form to scan and confirm your attendance.</p>
+            <button type="button" class="qr-open-button">Open Gift QR Code</button>
+            <p class="qr-note">Scan this QR code if you would like to send a gift.</p>
           </div>
 
           <div class="qr-modal" id="qrModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="qr-modal-title">
             <div class="qr-modal-panel">
-              <button type="button" class="qr-close" aria-label="Close QR form">×</button>
-              <h3 id="qr-modal-title">QR Code Confirmation</h3>
-              <p class="qr-modal-copy">Fill in your details and scan the code to RSVP.</p>
-              <form class="qr-form">
-                <label>
-                  Name
-                  <input type="text" name="name" placeholder="Your name" required />
-                </label>
-                <label>
-                  Email
-                  <input type="email" name="email" placeholder="you@example.com" required />
-                </label>
-                <button type="submit" class="qr-submit">Confirm</button>
-              </form>
+              <button type="button" class="qr-close" aria-label="Close gift QR code">×</button>
+              <h3 id="qr-modal-title">Gift QR Code</h3>
+              <p class="qr-modal-copy">Thank you for your generosity. Scan the code below to send a monetary gift.</p>
               <div class="qr-popup-code" role="img" aria-label="Temporary QR code placeholder">
                 <div class="qr-popup-placeholder">
                   <span class="qr-corner qr-corner-one"></span>
@@ -211,7 +200,7 @@
                   <span class="qr-corner qr-corner-three"></span>
                   <span class="qr-pixels"></span>
                 </div>
-                <p class="qr-popup-note">Scan this code with your phone camera.</p>
+                <p class="qr-popup-note">Scan this code with your phone camera to send your gift.</p>
               </div>
             </div>
           </div>
@@ -282,13 +271,88 @@
             </div>
           </div>
         </section>
+
+        <section class="reminders-section" aria-labelledby="reminders-title">
+          <div class="reminders-content">
+            <h2 id="reminders-title">Our Little Reminders</h2>
+
+            <article class="reminder-item">
+              <h3>Are children allowed at the wedding?</h3>
+              <p>We truly cherish your little ones, but we have chosen to keep our wedding and reception an adults-only celebration, with the exception of immediate family. We kindly invite you to enjoy this occasion as a special date and a time to celebrate with us.</p>
+            </article>
+
+            <article class="reminder-item">
+              <h3>Can I bring plus one in your wedding?</h3>
+              <p>We are keeping our wedding guest list very intimate, and invitations have been thoughtfully extended to each guest individually. In this case, just to you. We truly hope you can join us in celebrating this special day, as your presence would mean so much to us.</p>
+            </article>
+
+            <article class="reminder-item">
+              <h3>What time should I arrive?</h3>
+              <p>The ceremony will start promptly at 4:00 pm. We ask that you arrive 30 minutes early.</p>
+            </article>
+
+            <article class="reminder-item">
+              <h3>When is the RSVP deadline?</h3>
+              <p>The RSVP deadline is on or before December 15, 2026.</p>
+            </article>
+
+            <article class="reminder-item">
+              <h3>What if I still attend even without submitting the RSVP?</h3>
+              <p>As much as we would love to celebrate with everyone, if your RSVP was not submitted, unfortunately a seat and meal have not been reserved. We truly appreciate your thoughtfulness and hope you can join us by confirming in advance, so we may welcome you with the warmth and hospitality you deserve.</p>
+            </article>
+
+            <article class="reminder-item">
+              <h3>I replied “no” on the RSVP, but I changed my mind. Can I still attend?</h3>
+              <p>When you RSVP “no,” your slot is given to another guest so seating and meals can be properly arranged. If you wish to attend after changing your response, please contact us directly to check if a slot is still available.</p>
+            </article>
+
+            <article class="reminder-item">
+              <h3>Do you have a gift preference?</h3>
+              <p>As love is the heart of this day, your presence is truly the greatest gift we could ever receive. Should you wish to bless us further, we humbly suggest a monetary gift as we begin our new life together. Your kindness will help us build a home and future filled with love, joy, and lasting memories.</p>
+            </article>
+
+            <button class="rsvp-button" id="rsvpOpen" type="button" aria-controls="rsvpModal" aria-expanded="false">RSVP</button>
+          </div>
+        </section>
+
+        <div class="rsvp-modal" id="rsvpModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="rsvp-modal-title">
+          <div class="rsvp-modal-panel">
+            <button type="button" class="rsvp-close" aria-label="Close RSVP form">×</button>
+            <h2 id="rsvp-modal-title">RSVP</h2>
+            <p class="rsvp-modal-copy">Please let us know if you will be celebrating with us.</p>
+            <form class="rsvp-form" action="https://script.google.com/macros/s/AKfycbwu3yDqTbz_tH9JlFbXT1EQhZaNZRhR3eVj-ZiZVusd1yMzZckvBJNv10cs7T7bbNk/exec" method="post" target="rsvpSubmissionFrame">
+              <label>
+                Full name
+                <input type="text" name="name" autocomplete="name" placeholder="Your full name" required />
+              </label>
+              <fieldset>
+                <legend>Will you attend?</legend>
+                <div class="rsvp-options">
+                  <label><input type="radio" name="attendance" value="yes" required /> Joyfully accepts</label>
+                  <label><input type="radio" name="attendance" value="no" /> Regretfully declines</label>
+                </div>
+              </fieldset>
+              <label>
+                Message for the couple <span>(optional)</span>
+                <textarea name="message" rows="3" placeholder="Share a note with Venz and Angeline"></textarea>
+              </label>
+              <button class="rsvp-submit" type="submit">Send RSVP</button>
+            </form>
+            <p class="rsvp-success" role="status" hidden>Thank you for your response. We look forward to celebrating with you!</p>
+          </div>
+        </div>
+        <iframe class="rsvp-submission-frame" name="rsvpSubmissionFrame" title="RSVP submission" aria-hidden="true"></iframe>
       </main>
     </div>
     <script>
       const qrOpen = document.querySelector('.qr-open-button');
       const qrModal = document.getElementById('qrModal');
       const qrClose = document.querySelector('.qr-close');
-      const qrForm = document.querySelector('.qr-form');
+      const rsvpOpen = document.getElementById('rsvpOpen');
+      const rsvpModal = document.getElementById('rsvpModal');
+      const rsvpClose = document.querySelector('.rsvp-close');
+      const rsvpForm = document.querySelector('.rsvp-form');
+      const rsvpSuccess = document.querySelector('.rsvp-success');
 
       function openQrModal() {
         qrModal.classList.add('open');
@@ -308,9 +372,32 @@
         }
       });
 
-      qrForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-        closeQrModal();
-        alert('Thank you! Your details have been recorded.');
+      function openRsvpModal() {
+        rsvpForm.reset();
+        rsvpForm.hidden = false;
+        rsvpSuccess.hidden = true;
+        rsvpModal.classList.add('open');
+        rsvpModal.setAttribute('aria-hidden', 'false');
+        rsvpOpen.setAttribute('aria-expanded', 'true');
+      }
+
+      function closeRsvpModal() {
+        rsvpModal.classList.remove('open');
+        rsvpModal.setAttribute('aria-hidden', 'true');
+        rsvpOpen.setAttribute('aria-expanded', 'false');
+      }
+
+      rsvpOpen.addEventListener('click', openRsvpModal);
+      rsvpClose.addEventListener('click', closeRsvpModal);
+      rsvpModal.addEventListener('click', (event) => {
+        if (event.target === rsvpModal) {
+          closeRsvpModal();
+        }
       });
+
+      rsvpForm.addEventListener('submit', (event) => {
+        rsvpForm.hidden = true;
+        rsvpSuccess.hidden = false;
+      });
+
     </script>
