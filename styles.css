@@ -47,10 +47,27 @@ body {
 }
 
 .hero {
+  position: relative;
+  isolation: isolate;
   min-height: calc(100vh - 32px);
   display: grid;
   align-content: center;
   gap: 32px;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: -24px;
+  z-index: 0;
+  background: url('photos/pg1_bg.jpg') center / cover no-repeat;
+  opacity: 0.05;
+  pointer-events: none;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
 }
 
 .photo-grid {
