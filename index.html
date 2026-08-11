@@ -281,12 +281,21 @@
             <p>Asuncion Subd., Purok 3, Emilio Aguinaldo Highway, Biga 1, Silang, 4118 Cavite</p>
           </div>
 
-          <div class="map-wrap">
-            <iframe
-              src="https://www.google.com/maps?q=Le%20Don%27s%20Garden%20Cafe%2C%20Asuncion%20Subd.%2C%20Purok%203%2C%20Emilio%20Aguinaldo%20Highway%2C%20Biga%201%2C%20Silang%2C%20Cavite&output=embed"
-              title="Map to Le Don's Garden Cafe"
-              loading="lazy"
-            ></iframe>
+          <button class="map-open-button" id="mapOpen" type="button" aria-controls="mapModal" aria-expanded="false">Open Map</button>
+
+          <div class="map-modal" id="mapModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="map-modal-title">
+            <div class="map-modal-panel">
+              <button type="button" class="map-close" aria-label="Close venue map">X</button>
+              <h3 id="map-modal-title">Venue Map</h3>
+              <p class="map-modal-copy">Le Don's Garden Cafe, Silang, Cavite</p>
+              <div class="map-wrap">
+                <iframe
+                  src="https://www.google.com/maps?q=Le%20Don%27s%20Garden%20Cafe%2C%20Asuncion%20Subd.%2C%20Purok%203%2C%20Emilio%20Aguinaldo%20Highway%2C%20Biga%201%2C%20Silang%2C%20Cavite&output=embed"
+                  title="Map to Le Don's Garden Cafe"
+                  loading="lazy"
+                ></iframe>
+              </div>
+            </div>
           </div>
 
           <div class="venue-contact-card">
@@ -343,6 +352,11 @@
           </div>
         </section>
 
+        <footer class="site-footer">
+          <p>Angeline &amp; Venz</p>
+          <span>December 3, 2026</span>
+        </footer>
+
         <div class="rsvp-modal" id="rsvpModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="rsvp-modal-title">
           <div class="rsvp-modal-panel">
             <button type="button" class="rsvp-close" aria-label="Close RSVP form">×</button>
@@ -381,6 +395,9 @@
       const rsvpClose = document.querySelector('.rsvp-close');
       const rsvpForm = document.querySelector('.rsvp-form');
       const rsvpSuccess = document.querySelector('.rsvp-success');
+      const mapOpen = document.getElementById('mapOpen');
+      const mapModal = document.getElementById('mapModal');
+      const mapClose = document.querySelector('.map-close');
 
       function openQrModal() {
         qrModal.classList.add('open');
@@ -397,6 +414,26 @@
       qrModal.addEventListener('click', (event) => {
         if (event.target === qrModal) {
           closeQrModal();
+        }
+      });
+
+      function openMapModal() {
+        mapModal.classList.add('open');
+        mapModal.setAttribute('aria-hidden', 'false');
+        mapOpen.setAttribute('aria-expanded', 'true');
+      }
+
+      function closeMapModal() {
+        mapModal.classList.remove('open');
+        mapModal.setAttribute('aria-hidden', 'true');
+        mapOpen.setAttribute('aria-expanded', 'false');
+      }
+
+      mapOpen.addEventListener('click', openMapModal);
+      mapClose.addEventListener('click', closeMapModal);
+      mapModal.addEventListener('click', (event) => {
+        if (event.target === mapModal) {
+          closeMapModal();
         }
       });
 
