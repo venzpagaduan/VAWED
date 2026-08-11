@@ -677,6 +677,17 @@ h1 {
   background: #fff;
 }
 
+.qr-popup-image {
+  display: block;
+  width: min(100%, 230px);
+  aspect-ratio: 1;
+  object-fit: contain;
+  border: 10px solid #fff;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 12px 24px rgba(16, 19, 26, 0.12);
+}
+
 .qr-popup-note {
   margin: 0;
   color: #4c4d4a;
