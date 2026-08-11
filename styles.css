@@ -706,6 +706,20 @@ h1 {
   .qr-open-button {
     width: 100%;
   }
+
+  .map-open-button {
+    width: calc(100% - 28px);
+  }
+
+  .map-modal-panel {
+    padding: 22px;
+  }
+
+  .map-wrap {
+    width: 100%;
+    height: min(72vh, 420px);
+    border-width: 5px;
+  }
 }
 
 .reminders-section {
@@ -951,6 +965,28 @@ h1 {
 
 .rsvp-submission-frame {
   display: none;
+}
+
+.site-footer {
+  margin-top: 28px;
+  padding: 24px 16px;
+  color: #625f56;
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0 0 4px;
+  font-family: 'Eyesome Script', 'Segoe Script', cursive;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 0.9;
+}
+
+.site-footer span {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.72;
 }
 
 @media (max-width: 420px) {
@@ -1394,10 +1430,90 @@ h1 {
   line-height: 1.25;
 }
 
+.map-open-button {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: fit-content;
+  margin: clamp(14px, 3vw, 28px) auto;
+  padding: 15px 24px;
+  border: 0;
+  border-radius: 999px;
+  color: #fffdf4;
+  background: #52623e;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 16px 32px rgba(55, 66, 42, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.map-open-button:hover,
+.map-open-button:focus-visible {
+  transform: translateY(-2px);
+  outline: none;
+  box-shadow: 0 22px 42px rgba(55, 66, 42, 0.28);
+}
+
+.map-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(15, 18, 24, 0.82);
+  backdrop-filter: blur(6px);
+}
+
+.map-modal.open {
+  display: flex;
+}
+
+.map-modal-panel {
+  position: relative;
+  width: min(100%, 900px);
+  padding: clamp(22px, 4vw, 34px);
+  border-radius: 28px;
+  color: #10131a;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 36px 90px rgba(0, 0, 0, 0.22);
+}
+
+.map-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  color: #f7f4f1;
+  background: #10131a;
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.map-modal-panel h3 {
+  margin: 0 44px 8px 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.map-modal-copy {
+  margin: 0 44px 18px 0;
+  color: #4c4d4a;
+  line-height: 1.5;
+}
+
 .map-wrap {
   width: min(calc(100% - clamp(28px, 6vw, 64px)), 700px);
   height: clamp(260px, 42vw, 390px);
-  margin: clamp(14px, 3vw, 28px) auto;
+  margin: 0 auto;
   overflow: hidden;
   border: 7px solid rgba(255, 253, 246, 0.91);
   background: #e9e2d1;
