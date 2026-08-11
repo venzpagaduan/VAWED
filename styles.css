@@ -1333,10 +1333,13 @@ h1 {
 .venue-hero {
   display: block;
   width: calc(100% - clamp(28px, 6vw, 64px));
-  height: clamp(220px, 35vw, 340px);
+  aspect-ratio: 4 / 3;
+  height: auto;
+  min-height: 0;
+  max-height: 620px;
   margin: clamp(14px, 3vw, 32px) clamp(14px, 3vw, 32px) 0;
+  border: 0;
   overflow: hidden;
-  object-fit: cover;
   background: #4a573b;
 }
 
@@ -1564,6 +1567,11 @@ h1 {
   .venue-page {
     margin-top: 20px;
     border-radius: 28px;
+  }
+
+  .venue-hero {
+    width: calc(100% - 28px);
+    margin: 14px auto 0;
   }
 
   .venue-page > h2 {
