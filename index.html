@@ -397,6 +397,16 @@
         <iframe class="rsvp-submission-frame" name="rsvpSubmissionFrame" title="RSVP submission" aria-hidden="true"></iframe>
       </main>
     </div>
+
+<div class="rsvp-confirmation" id="rsvpConfirmation" aria-hidden="true">
+  <div class="rsvp-confirmation-card">
+    <div class="rsvp-confirmation-icon">✓</div>
+    <h3>RSVP Sent!</h3>
+    <p>Thank you for confirming your response.</p>
+    <button type="button" id="rsvpConfirmationOk">OK</button>
+  </div>
+</div>
+    
     <script>
       const qrOpen = document.querySelector('.qr-open-button');
       const qrModal = document.getElementById('qrModal');
@@ -471,9 +481,29 @@
         }
       });
 
-      rsvpForm.addEventListener('submit', (event) => {
-        rsvpForm.hidden = true;
-        rsvpSuccess.hidden = false;
-      });
+      const rsvpConfirmation =
+  document.getElementById('rsvpConfirmation');
+
+const rsvpConfirmationOk =
+  document.getElementById('rsvpConfirmationOk');
+
+rsvpForm.addEventListener('submit', (event) => {
+  setTimeout(() => {
+    // Close RSVP modal
+    closeRsvpModal();
+
+    // Show confirmation
+    rsvpConfirmation.classList.add('open');
+    rsvpConfirmation.setAttribute('aria-hidden', 'false');
+
+    // Reset RSVP form
+    rsvpForm.reset();
+  }, 500);
+});
+
+rsvpConfirmationOk.addEventListener('click', () => {
+  rsvpConfirmation.classList.remove('open');
+  rsvpConfirmation.setAttribute('aria-hidden', 'true');
+});
 
     </script>
